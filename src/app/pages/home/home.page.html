@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+     Pacientes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!pacientes.length">
+    <ion-item *ngFor="let item of [0,1,2]">
+      <ion-avatar slot="start">
+            <ion-skeleton-text animated ></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+          <h3>
+              <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+          </h3>
+          <p>
+              <ion-skeleton-text animated style="width:50%;"></ion-skeleton-text>
+          </p>
+          <p>
+              <ion-skeleton-text animated style="width: 30%;"></ion-skeleton-text>
+          </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item-sliding *ngFor="let paciente of pacientes">
+      <ion-item button [routerLink]="['/detalhes', paciente.id]">
+        <ion-avatar slot="start">
+            <img [src]="paciente.picture" />
+        </ion-avatar>
+        <ion-label>
+          <p>Nome: {{paciente.name}}</p>
+            
+         <p>DTNascimento: {{paciente.birthdate}} </p>
+         <p>Altura: {{paciente.height}}M</p>
+        </ion-label>
+
+      <p>Tipo Sanguineo:  {{paciente.bloodtype}}</p>
+      
+      </ion-item>
+      <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="deletePaciente(paciente.id)">
+              <ion-icon slot="top" name="trash"></ion-icon>
+              Excluir
+          </ion-item-option>
+      </ion-item-options>
+  </ion-item-sliding>
+
+
+  <ion-footer>
+      <ion-toolbar>
+          <ion-grid>
+              <ion-row>
+                  <ion-col size="6">
+                      <ion-button routerLink="/detalhes" expand="block">
+                         + Paciente
+                      </ion-button>
+                  </ion-col>
+              </ion-row>
+          </ion-grid>
+      </ion-toolbar>
+  </ion-footer>
+
+
+</ion-content>

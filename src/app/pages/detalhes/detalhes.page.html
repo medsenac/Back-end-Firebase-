@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title>Olá {{paciente.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+    <ion-item>
+        <ion-input
+        type="text"
+        [(ngModel)]="paciente.name"
+        placeholder ="Nome"
+        >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input
+          type="text"
+          [(ngModel)]="paciente.birthdate"
+          placeholder="Data de Aniver"
+        
+        ></ion-input>
+    </ion-item>
+    <ion-item>
+      
+      <ion-input
+      type="text"
+      [(ngModel)]="paciente.bloodtype"
+      placeholder="Tipo Sanguineo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        [(ngModel)]="paciente.height"
+        placeholder="Altura"
+      
+      ></ion-input>
+  </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        [(ngModel)]="paciente.picture"
+        placeholder="Foto"
+      ></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-button (click)="savePaciente()" expand="block">
+            Salvar Paciente
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>
+</ion-content>
